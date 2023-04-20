@@ -10,11 +10,11 @@ public:
 	vector<item_cluster> ic_vec; //build in get_ic_cluster
 	map<string, symbol> symbol_map;//bulid in constructor
 	map<string, vector<item>> sameleft_item_set;//bulid in constructor
-	map<string, first> first_map;  //(maybe useless)
+	map<string, first> first_map;  // bulid in constructor
 	map<string, bool> if_deduct_null;
 	//node corresponded to a ic
 	map<int, ic_node> node_list;// build in get_new_ic
-	map<string, set<string>> first_deduced;//  (maybe useless)
+	map<string, set<string>> first_deduced;//  bulid in constructor
 
 	map<string, action> ACTION;//bulid in constructor
 	map<string, int> GOTO;//bulid in constructor
