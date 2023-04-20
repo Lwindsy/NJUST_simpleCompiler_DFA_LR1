@@ -127,11 +127,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="LR_1.cpp" />
+    <ClCompile Include="process_functions.cpp" />
+    <ClCompile Include="structs.cpp" />
     <ClCompile Include="Syntax Analyzer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="syntactic_grammar.txt" />
     <Text Include="Token_list.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="LR_1.h" />
+    <ClInclude Include="process_functions.h" />
+    <ClInclude Include="structs.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -18,9 +18,29 @@
     <ClCompile Include="Syntax Analyzer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="process_functions.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LR_1.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="structs.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="syntactic_grammar.txt" />
     <Text Include="Token_list.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="process_functions.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="structs.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LR_1.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
