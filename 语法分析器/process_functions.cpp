@@ -222,7 +222,7 @@ map<string, first> process_first_map(map<string, first> init_first_map, map<stri
 			if (done) break;
 		}
 	}
-	/*for (auto& f : init_first_map) {
+	for (auto& f : init_first_map) {
 		vector<string> wait_for_erase;
 		for (auto& f_fs : f.second.first_set) {
 			if (symbol_map[f_fs].if_not_terminator) {
@@ -231,7 +231,7 @@ map<string, first> process_first_map(map<string, first> init_first_map, map<stri
 		}
 		for (string s : wait_for_erase)
 			f.second.first_set.erase(s);
-	}*/
+	}
 	return init_first_map;
 }
 

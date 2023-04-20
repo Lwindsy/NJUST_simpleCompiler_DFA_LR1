@@ -1,0 +1,2 @@
+<error_annotation_not_match> -> *<A>
+<A> -> /

@@ -103,9 +103,8 @@ Token DFA_read(DFA dfa, string line, int& index) {
 							break;
 						}
 						else
-							// any letter
+							// any letter in string or error_string
 							if (edge.first == "^~" && (char)input_letter[0] != '"') {
-
 								status = edge.second;
 								match_not_null = true;
 								break;
@@ -148,32 +147,33 @@ Token DFA_read(DFA dfa, string line, int& index) {
 	return t;
 }
 
-list<Token> read_file(vector<DFA> dfa_list, string filename) {
+list<Token> read_code(vector<DFA> dfa_list, string filename) {
 	list<Token> token_list;
 	ifstream file(filename);
 	string line;
 	int index = 0;
 	int line_num = 1;
+	bool annotation_detected = false;
+	int annotation_line;
 	while (getline(file, line)) {
-		line.erase(0, line.find_first_not_of(" "));
-		cout << line_num << endl;
 
-		cout << line << endl;
+		line.erase(0, line.find_first_not_of(" "));
 		// pass empty line
 		if (line.empty()) {
 			line_num++;
 			continue;
 		}
-		// recognize the annotation
-		if (line.size() >= 2 && line[0] == line[1] && line[0] == '/') {
-			Token t;
-			t.line = line_num;
-			t.type = "annotation";
-			t.value = line.substr(2);
-			token_list.push_back(t);
-
-			line_num++;
-			continue;
+		// "/*" was found but not matched yet
+		if (annotation_detected) {
+			search_anno(index, line);
+			// found "*/"
+			if(index != 0){
+				annotation_detected = false;
+			}
+			else {
+				line_num++;
+				continue;
+			}
 		}
 
 		while (index <= line.size() - 1) {
@@ -191,7 +191,7 @@ list<Token> read_file(vector<DFA> dfa_list, string filename) {
 					string a = ambiguous_identifier[i];
 					if (t.type == a) {
 						index = start_index;
-						Token identifier = DFA_read(dfa_list[15], line, index);
+						Token identifier = DFA_read(dfa_list[index_identifier], line, index);
 						//it should be an identifier
 						if (identifier.value.size() > t.value.size()) {
 							t = identifier;
@@ -200,26 +200,80 @@ list<Token> read_file(vector<DFA> dfa_list, string filename) {
 				}
 
 				// check if a invalid word was analyzed to be a number and a identifier like '4abc'
-				if (t.type == ambiguous_error) {
+				if (t.type == ambiguous_error_identifier) {
 					int save_index = index;
 					index = start_index;
-					Token error = DFA_read(dfa_list[16], line, index);
+					Token error = DFA_read(dfa_list[index_error_identifier], line, index);
 					//it should be an error
 					if (error.value.size() > t.value.size()) {
 						t = error;
 					}
-					else
-					{
+					else{
 						index = save_index;
 					}
 				}
-				t.line = line_num;
-				token_list.push_back(t);
-				break;
+
+				// check if "/*" was analyzed to be a "/" and a "*"
+				if (t.type == ambiguous_annotation) {
+					int save_index = index;
+					index = start_index;
+					Token annotation = DFA_read(dfa_list[index_annotation], line, index);
+					if (annotation.value != "") {
+						//it should be an annotation
+						t = annotation;
+					}
+					else {
+						index = save_index;
+					}
+				}
+
+
+				// check if DFA_read recognized a annotation.
+				// if it is the "//" case,pass the rest of the line;if it is "/*", pass the rest of code until recognizing "*/". 
+				if (t.type == "Annotation") {
+					index = start_index;
+					annotation_line = line_num;
+					if (t.value == "//") {
+						index = line.size();
+						break;
+					}
+					annotation_detected = true;
+					search_anno(index, line);
+					// found "*/"
+					if (index != 0) {
+						annotation_detected = false;
+					}
+					else {
+						index = line.size();
+						break;
+					}
+				}
+				else {
+					t.line = line_num;
+					token_list.push_back(t);
+					break;
+				}
 			}
 		}
-		line_num++;
 		index = 0;
+		line_num++;
+	}
+	if (annotation_detected) {
+		Token t;
+		t.type = "error_annotation_not_match";
+		t.value = "/*";
+		t.line = annotation_line;
+		token_list.push_back(t);
 	}
 	return token_list;
+}
+
+void search_anno(int& index, string line) {
+	for (int i = index; i < line.size() - 1; i++) {
+		if (line[i] == '*' && line[i + 1] == '/') {
+			index = i + 2;
+			return;
+		}
+	}
+	index = 0;
 }

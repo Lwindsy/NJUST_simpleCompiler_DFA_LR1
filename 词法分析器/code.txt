@@ -5,17 +5,22 @@ int main() {
     double d = -20E+4;
     double bcx = 0.014;
     int a = c++;
-    // this is a annotation.
     for (int i = 0; i <= 4; i++) {
         while (for_) {
             int forwhile = 1;
             string _ac = "saf sadw81sad";
         }
-
-        // a
-        if( i != 0){
+        /* aa */
+        if( i != 0){   //hello ~
             return 0;
         }
+
+        // hi~
+
+        /*
+        int a = 1;
+        
+
         else{
             z += 1;
         }

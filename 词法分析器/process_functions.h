@@ -20,8 +20,8 @@ vector<Grammar> load_grammar(string filename);
 
 vector<DFA> get_dfa_list();
 
-
-
 Token DFA_read(DFA dfa, string line, int& index);
 
-list<Token> read_file(vector<DFA> dfa_list, string filename);
+list<Token> read_code(vector<DFA> dfa_list, string filename);
+
+void search_anno(int& index,string line);

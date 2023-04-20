@@ -4,10 +4,15 @@
 
 using namespace std;
 
-constexpr auto grammar_number = 17;
+constexpr auto grammar_number = 20;
+
+constexpr auto index_error_identifier = 18;
+constexpr auto index_annotation = 19;
+constexpr auto index_identifier = 16;
 
 // sort by priority from top to bottom 
 string grammar_file_list[grammar_number] = {
+	"error_annotation_not_match.txt",
 	"grammar_delimiter.txt",
 	"grammar_string.txt",
 	"grammar_number.txt",
@@ -24,7 +29,9 @@ string grammar_file_list[grammar_number] = {
 	"grammar_qualifier.txt",
 	"grammar_type.txt",
 	"grammar_identifier.txt",
-	"grammar_error.txt"
+	"grammar_error_string.txt",
+	"grammar_error_identifier.txt",
+	"grammar_annotation.txt"
 };
 
 // if a word's type is one of the following 4 types then it should be analyzed if it's an identifier in case of some identifier's value is ambiguous such as "noner" and "forwhile" 
@@ -40,4 +47,7 @@ string ambiguous_identifier[9] = {
 	"type",
 };
 
-string ambiguous_error = "number";
+string ambiguous_error_identifier = "number";
+
+string ambiguous_annotation = "binary_operation";
+
