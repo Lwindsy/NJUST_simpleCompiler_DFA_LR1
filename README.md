@@ -8,8 +8,3 @@
  ___
  Written in vs2022.   
  使用vs2022编写
- 
-
-##  todo list
- - [ ] ***error_check function in Syntax Analyzer***
- - [ ] ***visualize the LR_1 Analyzing process by python***
