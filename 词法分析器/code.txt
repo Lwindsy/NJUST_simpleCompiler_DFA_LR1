@@ -12,7 +12,7 @@ int main() {
             string _ac = "saf sadw81sad";
         }
 
-        /* this is a annotation,too. */
+        
         if( i != 0){
             return 0;
         }

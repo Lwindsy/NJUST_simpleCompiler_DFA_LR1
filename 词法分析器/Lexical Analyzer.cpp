@@ -275,7 +275,7 @@ vector<DFA> get_dfa_list() {
 	vector<DFA> dfa_list;
 
 	for (int i = 0; i < grammar_number; i++) {
-		string filename = grammar_file_list[i];
+		string filename = "grammar/" + grammar_file_list[i];
 		NFA nfa = NFA(filename);
 		DFA dfa = DFA(nfa);
 		dfa_list.push_back(dfa);
@@ -389,21 +389,26 @@ list<Token> read_file(vector<DFA> dfa_list, string filename) {
 	int index = 0;
 	int line_num = 1;
 	while (getline(file, line)) {
+		line.erase(0, line.find_first_not_of(" "));
+		cout << line_num << endl;
+
+		cout << line << endl;
 		// pass empty line
 		if (line.empty()) {
 			line_num++;
 			continue;
 		}
 		// recognize the annotation
-		if (line.size() > 2 && line[0] == line[1] == '/') {
+		if (line.size() >= 2 && line[0] == line[1] && line[0] == '/') {
 			Token t;
 			t.line = line_num;
 			t.type = "annotation";
 			t.value = line.substr(2);
 			token_list.push_back(t);
+
+			line_num++;
 			continue;
 		}
-		line.erase(0, line.find_first_not_of(" "));
 
 		while (index <= line.size() - 1) {
 			int start_index = index;
