@@ -1,0 +1,6 @@
+<unary_operation> -> +<A>
+<unary_operation> -> -<B>
+<unary_operation> -> !
+<unary_operation> -> ~
+<A> -> +
+<B> -> -

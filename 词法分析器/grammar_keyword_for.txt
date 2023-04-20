@@ -1,0 +1,3 @@
+<keyword_for> -> f<A>
+<A> -> o<B>
+<B> -> r

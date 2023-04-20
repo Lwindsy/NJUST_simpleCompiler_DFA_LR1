@@ -1,0 +1,6 @@
+<keyword_return> -> r<A>
+<A> -> e<B>
+<B> -> t<C>
+<C> -> u<D>
+<D> -> r<E>
+<E> -> n

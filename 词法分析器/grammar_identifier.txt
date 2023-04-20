@@ -1,0 +1,8 @@
+<identifier> -> _<A>
+<identifier> -> ^c<A>
+<identifier> -> ^C<A>
+<A> -> _<A>
+<A> -> ^c<A>
+<A> -> ^C<A>
+<A> -> ^d<A>
+<A> -> $

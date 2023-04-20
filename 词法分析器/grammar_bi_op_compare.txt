@@ -1,0 +1,7 @@
+<binary_op_compare> -> <<A>
+<binary_op_compare> -> ><A>
+<binary_op_compare> -> =<D>
+<binary_op_compare> -> !<D>
+<A> -> =
+<A> -> $
+<D> -> =

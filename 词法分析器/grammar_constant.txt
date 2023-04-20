@@ -1,0 +1,9 @@
+<constant> -> t<A>
+<A> -> r<B>
+<B> -> u<C>
+<C> -> e
+<constant> -> f<D>
+<D> -> a<E>
+<E> -> l<F>
+<F> -> s<G>
+<G> -> e

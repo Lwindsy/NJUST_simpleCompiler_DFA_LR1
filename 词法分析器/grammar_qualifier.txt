@@ -1,0 +1,5 @@
+<qualifier> -> c<A>
+<A> -> o<B>
+<B> -> n<C>
+<C> -> s<D>
+<D> -> t
