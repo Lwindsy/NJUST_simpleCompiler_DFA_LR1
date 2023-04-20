@@ -23,23 +23,28 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="grammar_unary_op.txt" />
-    <Text Include="grammar_type.txt" />
-    <Text Include="grammar_string.txt" />
-    <Text Include="grammar_qualifier.txt" />
-    <Text Include="grammar_error.txt" />
-    <Text Include="grammar_constant.txt" />
-    <Text Include="grammar_bi_op.txt" />
-    <Text Include="grammar_identifier.txt" />
-    <Text Include="grammar_delimiter.txt" />
-    <Text Include="grammar_number.txt" />
     <Text Include="code.txt" />
-    <Text Include="grammar_keyword_else.txt" />
-    <Text Include="grammar_keyword_for.txt" />
-    <Text Include="grammar_keyword_if.txt" />
-    <Text Include="grammar_keyword_statement.txt" />
-    <Text Include="grammar_keyword_while.txt" />
-    <Text Include="grammar_keyword_return.txt" />
-    <Text Include="grammar_bi_op_compare.txt" />
+    <Text Include="grammar\grammar_bi_op.txt" />
+    <Text Include="grammar\grammar_bi_op_compare.txt" />
+    <Text Include="grammar\grammar_constant.txt" />
+    <Text Include="grammar\grammar_delimiter.txt" />
+    <Text Include="grammar\grammar_error.txt" />
+    <Text Include="grammar\grammar_identifier.txt" />
+    <Text Include="grammar\grammar_keyword_else.txt" />
+    <Text Include="grammar\grammar_keyword_for.txt" />
+    <Text Include="grammar\grammar_keyword_if.txt" />
+    <Text Include="grammar\grammar_keyword_return.txt" />
+    <Text Include="grammar\grammar_keyword_statement.txt" />
+    <Text Include="grammar\grammar_keyword_while.txt" />
+    <Text Include="grammar\grammar_number.txt" />
+    <Text Include="grammar\grammar_qualifier.txt" />
+    <Text Include="grammar\grammar_string.txt" />
+    <Text Include="grammar\grammar_type.txt" />
+    <Text Include="grammar\grammar_unary_op.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
