@@ -21,6 +21,12 @@
     <ClCompile Include="Struct_list.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="NFA_DFA.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="process_functions.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="code.txt" />
@@ -43,7 +49,16 @@
     <Text Include="grammar\grammar_unary_op.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="resource.h">
+    <ClInclude Include="NFA_DFA.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="process_functions.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="const.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="structs.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

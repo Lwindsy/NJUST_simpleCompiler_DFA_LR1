@@ -66,6 +66,7 @@
 [ line: 12, type: string, value: "saf sadw81sad"]
 [ line: 12, type: delimiter, value: ;]
 [ line: 13, type: delimiter, value: }]
+[ line: 15, type: annotation, value:  a]
 [ line: 16, type: keyword_if, value: if]
 [ line: 16, type: delimiter, value: (]
 [ line: 16, type: identifier, value: i]

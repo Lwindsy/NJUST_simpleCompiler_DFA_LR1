@@ -129,6 +129,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Lexical Analyzer.cpp" />
+    <ClCompile Include="NFA_DFA.cpp" />
+    <ClCompile Include="process_functions.cpp" />
     <ClCompile Include="Struct_list.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -152,7 +154,10 @@
     <Text Include="grammar\grammar_unary_op.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="resource.h" />
+    <ClInclude Include="const.h" />
+    <ClInclude Include="NFA_DFA.h" />
+    <ClInclude Include="process_functions.h" />
+    <ClInclude Include="structs.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
