@@ -12,6 +12,10 @@ struct Token {
 	int line = -1;
 	string type;
 	string value;
+
+	inline void print() {
+		cout << "[ line: " << line << ", type: " << type << ", value: " << value << " ] ";
+	}
 };
 
 struct symbol {
@@ -44,6 +48,23 @@ struct item {
 		left = "";
 		right = {};
 		search = {};
+	}
+
+	inline void print() {
+		cout << "        " << left << " -> ";
+		for (auto r : right) {
+			if (r.if_not_terminator) {
+				cout << " <" << r.value << ">";
+			}
+			else {
+				cout << " " << r.value;
+			}
+		}
+		cout << "  pos: " << pos << "  len: " << length << " search: ";
+		for (auto s : search) {
+			cout << s << " ";
+		}
+		cout << endl;
 	}
 };
 

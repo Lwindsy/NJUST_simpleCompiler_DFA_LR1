@@ -18,9 +18,6 @@
     <ClCompile Include="Lexical Analyzer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Struct_list.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="NFA_DFA.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -50,6 +47,7 @@
     <Text Include="grammar\grammar_error_string.txt" />
     <Text Include="grammar\grammar_annotation.txt" />
     <Text Include="grammar\error_annotation_not_match.txt" />
+    <Text Include="test_code.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NFA_DFA.h">

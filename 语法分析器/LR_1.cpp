@@ -215,13 +215,12 @@ item_cluster LR_1::get_ic(vector<item> start) {
 				j.search = get_first_set(beita);
 
 
-				bool if_beita_deduct_null = false;
+				bool if_beita_deduct_null = true;
 				for (int i = 0; i < beita.size(); i++) {
 					string b = beita[i];
 					if (!symbol_map[b].if_not_terminator || !if_deduct_null[b]) {
-						break;
+						if_beita_deduct_null = false;
 					}
-					if_beita_deduct_null = true;
 				}
 
 				if (if_beita_deduct_null || beita.size() == 0) {
@@ -237,7 +236,8 @@ item_cluster LR_1::get_ic(vector<item> start) {
 		}
 		if (i.pos == i.length) {
 			for (auto& nt_deduced : first_deduced[i.left]) {
-				i.search.push_back(nt_deduced);
+				if(!symbol_map[nt_deduced].if_not_terminator)
+					i.search.push_back(nt_deduced);
 			}
 		}
 		result.item_vec.push_back(i);
@@ -296,13 +296,15 @@ string LR_1::Syntax_Analysis(string filename) {
 		if (ACTION[cur_key].to != -1) {
 			sym.push(cur_symbol);
 			status.push(ACTION[cur_key].to);
-
+			cout << cur_symbol << " and " << ACTION[cur_key].to << " move in " << endl;
 		}
 		else
 		{
 			// reduce
 			if (ACTION[cur_key].reduce.pos != -1) {
 				item reduce = ACTION[cur_key].reduce;
+
+				reduce.print();
 
 				if (ACTION[cur_key].type == "acc") {
 					result = "Success!";
@@ -317,24 +319,20 @@ string LR_1::Syntax_Analysis(string filename) {
 					if (GOTO.find(after_reduce_key) != GOTO.end()) {
 						sym.push(reduce.left);
 						status.push(GOTO[after_reduce_key]);
+						cout << reduce.left << " and " << GOTO[after_reduce_key] << " goto " << endl;
 						i--;
 					}
 					else {
 						result = error_check();
+						cur_token.print();
 						return result;
 					}
 				}
 			}
 			else {
-				//if (GOTO[cur_symbol]) {
-
-				//}
-				////empty
-				//else
-				//{
 				result = error_check();
+				cur_token.print();
 				return result;
-				//}
 			}
 
 		}

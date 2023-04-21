@@ -131,7 +131,6 @@
     <ClCompile Include="Lexical Analyzer.cpp" />
     <ClCompile Include="NFA_DFA.cpp" />
     <ClCompile Include="process_functions.cpp" />
-    <ClCompile Include="Struct_list.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="code.txt" />
@@ -155,6 +154,7 @@
     <Text Include="grammar\grammar_string.txt" />
     <Text Include="grammar\grammar_type.txt" />
     <Text Include="grammar\grammar_unary_op.txt" />
+    <Text Include="test_code.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="const.h" />

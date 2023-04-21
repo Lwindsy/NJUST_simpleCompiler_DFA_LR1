@@ -32,8 +32,8 @@ int main() {
 	cout << lr1_analyzor.Syntax_Analysis("Token_list.txt") << endl;
 
 	bool cout_ic = false;
-	bool cout_ic_node = false;
-	bool cout_ACTION = false;
+	bool cout_ic_node = true;
+	bool cout_ACTION = true;
 	bool cout_GOTO = false;
 	bool cout_first_deduced = false;
 	bool cout_init_first_map = false;
@@ -102,20 +102,7 @@ int main() {
 			cout << a.first << "  type: " << a.second.type << endl;
 			if (a.second.type == "r" || a.second.type == "acc") {
 				item reduce = a.second.reduce;
-				cout << "        " << reduce.left << " -> ";
-				for (auto r : reduce.right) {
-					if (r.if_not_terminator) {
-						cout << " <" << r.value << ">";
-					}
-					else {
-						cout << " " << r.value;
-					}
-				}
-				cout << "  pos: " << reduce.pos << "  len: " << reduce.length << " search: ";
-				for (auto r : reduce.search) {
-					cout << r << " ";
-				}
-				cout << endl;
+				reduce.print();
 			}
 			else {
 				cout << a.second.to << endl;

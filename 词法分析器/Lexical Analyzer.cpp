@@ -17,7 +17,7 @@ using namespace std;
 int main() {
 	vector<DFA> dfa_list = get_dfa_list();
 
-	list<Token> token_list = read_code(dfa_list, "code.txt");
+	list<Token> token_list = read_code(dfa_list, "test_code.txt");
 
 	ofstream outfile;
 	outfile.open("C:\\Users\\ASUS\\source\\repos\\±àÒëÆ÷\\Óï·¨·ÖÎöÆ÷\\Token_list.txt");
