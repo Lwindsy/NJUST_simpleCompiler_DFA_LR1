@@ -1,4 +1,4 @@
-# simpleCompiler
+### simpleCompiler
 
  an assignment of njust's software design pt.2  
  南京理工大学计算机大三下编译原理课设
